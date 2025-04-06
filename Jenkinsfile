@@ -5,7 +5,7 @@ pipeline {
     SSH_CRED = credentials('SSH_CRED')              
   }
    triggers {
-        cron('*/2 * * * *')
+        pollSCM('*/1 * * * 0-5')
     }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
