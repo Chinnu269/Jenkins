@@ -15,8 +15,12 @@ pipeline {
             }
         }
         stage('stage2') {
+        environment {
+            BATCH= "B55"
+        } 
             steps {
               sh "echo stage2 demo"
+              sh "echo devops batch is: ${BATCH}"
             }
         }
         stage('stage3') {
