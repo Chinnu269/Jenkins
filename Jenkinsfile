@@ -1,7 +1,8 @@
 pipeline {
   agent any
   environment {                                        //pipeline variable: All the stages of the pipeline can use it
-    ENV_URL= "pipeline.google.com"              
+    ENV_URL= "pipeline.google.com"  
+    SSH_CRED = credentials('SSH_CRED')             
   }
     stages {
         stage('stage1') {
@@ -10,6 +11,7 @@ pipeline {
               echo Hello world
               echo welcome to jenkins
               echo environment variable is: ${ENV_URL}
+              env
 
               '''
             }
