@@ -1,9 +1,16 @@
 pipeline {
   agent any
+  environment {
+    ENV_URL= "pipeline.google.com"
+  }
     stages {
         stage('stage1') {
             steps {
-              sh "echo stage1 demo"
+              sh '''
+              echo Hello world
+              echo welcome to jenkins
+              echo environemtn variable is: ${ENV_URL}
+              '''
             }
         }
         stage('stage2') {
