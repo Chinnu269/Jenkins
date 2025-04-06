@@ -26,7 +26,7 @@ pipeline {
               echo welcome to jenkins
               echo environment variable is: ${ENV_URL}
               env
-              mvn clean
+              mvn -v
              '''
             }
         }
