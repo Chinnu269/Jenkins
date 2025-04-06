@@ -19,6 +19,8 @@ pipeline {
         maven 'maven-3.9.8' 
     }
     stages {
+        stage ('parallel demo') {
+         parallel {
         stage('stage1') {
             steps {
               sh '''
@@ -39,10 +41,12 @@ pipeline {
               sh "echo devops batch is: ${BATCH}"
             }
         }
-        stage('stage3') {
-            steps {
-              sh "echo stage3 demo"
-            }
-        }
+               stage('stage3') {
+               steps {
+               sh "echo stage3 demo"
+               }
+           }
+       }
     }
+}
 }
