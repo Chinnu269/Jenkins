@@ -5,7 +5,7 @@ pipeline {
     SSH_CRED = credentials('SSH_CRED')              
   }
    triggers {
-        pollSCM('*/1 * * * 0-5')
+        pollSCM('*/59 * * * 0-5')
     }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
@@ -13,6 +13,10 @@ pipeline {
         booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+    }
+
+    tools {
+        maven 'apache-maven-3.8.6' 
     }
     stages {
         stage('stage1') {
