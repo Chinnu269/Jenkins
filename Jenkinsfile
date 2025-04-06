@@ -9,7 +9,8 @@ pipeline {
               sh '''
               echo Hello world
               echo welcome to jenkins
-              echo environemtn variable is: ${ENV_URL}
+              echo environment variable is: ${ENV_URL}
+              
               '''
             }
         }
